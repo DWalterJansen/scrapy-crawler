@@ -12,6 +12,12 @@ BOT_NAME = 'desafio_xkcd'
 SPIDER_MODULES = ['desafio_xkcd.spiders']
 NEWSPIDER_MODULE = 'desafio_xkcd.spiders'
 
+# Pipeline to download images
+ITEM_PIPELINES = {'desafio_xkcd.pipelines.CustomImagePipeline': 1}
+
+# Folder to save images
+IMAGES_STORE = 'images'
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'desafio_xkcd (+http://www.yourdomain.com)'
