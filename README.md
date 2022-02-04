@@ -1,7 +1,13 @@
 # Sobre
-Este projeto foi construído para fins de aprendizado no framework [Scrapy](https://scrapy.org/), aplicado como ferramente de solução para um desafio envolvendo *crawlers*.
+Este projeto foi construído para fins de aprendizado no framework [Scrapy](https://scrapy.org/), aplicado como ferramente de solução para um desafio envolvendo *crawler*.
 
 ## Descrição do Desafio
+O objetivo do desafio é construir um programa que:
+- Baixe todas as imagens do site xkcd.
+- Salve as imagens localmente.
+- O nome de cada arquivo deve ser o título **md5** do quadrinho (ex.: o nome do arquivo referente ao quadrinho https://xkcd.com/2563/ é ```dda012759b877051aba034de87eaef58.png```.
+- Numa segunda vez que o programa for rodado, deve haver um verificador para que, caso o arquivo já exista, ele não seja salvo/sobrescrito localmente.
+- O programa deve ter teste unitários.
 
 ## Tópicos estudados:
 1. **[Virtualenv](https://virtualenv.pypa.io/en/latest/)**.
