@@ -18,6 +18,9 @@ ITEM_PIPELINES = {'desafio_xkcd.pipelines.CustomImagePipeline': 1}
 # Folder to save images
 IMAGES_STORE = 'images'
 
+# Config LOG. Default is DEBUG
+LOG_LEVEL = 'INFO'
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'desafio_xkcd (+http://www.yourdomain.com)'
