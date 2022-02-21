@@ -5,3 +5,6 @@
 # Images
 **/*.jpg
 **/*.png
+
+# Cache
+**/__pycache__/
