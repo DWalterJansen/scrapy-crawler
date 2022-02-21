@@ -13,7 +13,6 @@ from scrapy.utils.misc import md5sum
 from scrapy.pipelines.images import ImagesPipeline
 
 
-
 class CustomImagePipeline(ImagesPipeline):
 
     def __init__(self, store_uri, download_func=None, settings=None):
