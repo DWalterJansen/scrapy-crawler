@@ -33,10 +33,7 @@ Alguns *link* de imagens obtidos através da *tag* **href** representam conteúd
  - /2198/
 
 ## Requisitos
-- Python 3.7
-- Scrapy 2.5.1
-- Pytest 2.5
-- Tox 3.24.5
+Os requisitos são exibidos dentro do diretório [**requirements**](requirements)
 
 > Obs.: A solução foi construída sobre o **Pop!_OS 20.04 LTS**, sistema baseado no Ubuntu.
 
