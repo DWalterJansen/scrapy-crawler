@@ -18,7 +18,19 @@ O objetivo do desafio é construir um programa que:
 
 ## Metodologia Adotoda
 
-## Arquitetura da Solução:
+A solução apresentada utiliza o framework **Scrapy** para criar um ***spider*** que realiza as seguintes ações:
+- Acessa à *url* https://xkcd.com/archive/, onde são listados todos os *comics*. Recolhe o conteúdo de todas as *tags* **href** dentro do **div** que exibe os *links* das *comics*.
+- Para cada **href** encontrado, é gerado uma *url* completa para navegar à página dos detalhes da *comic*. Dentro desta nova página, é extraída o conteúdo da *tag* **img** que armazena a fonte da imagem.
+- Utilizando o conteído da *tag* **img**, caso exista, o ***spider*** envia este conteúdo ao [Pipeline de Itens](https://docs.scrapy.org/en/latest/topics/item-pipeline.html) responsável por realizar o *download* do conteúdo.
+- Utilizando um [Pipeline de Itens](https://docs.scrapy.org/en/latest/topics/item-pipeline.html) customizado, o nome do arquivo foi alterado para representar o [md5](https://datatracker.ietf.org/doc/html/rfc1321.html) do conteúdo. Além disso, sempre que uma imagem é baixada, antes de persistir os dados, é verificado se um arquivo com mesmo nome, isto é, com mesmo conteúdo, já existe. Caso exista, a persistencia é ignorada.
+
+### Exceções e Tratamentos
+Alguns *link* de imagens obtidos através da *tag* **href** representam conteúdos dinâmicos, por exemplo as imagens https://xkcd.com/1416/ e https://xkcd.com/1608/. Para estes casos o *download* não é realizado. Isto ocorre para um total de 5 casos:
+ - /1350/
+ - /1416/
+ - /1608/
+ - /1663/
+ - /2198/
 
 ## Requisitos
 - Python 3.7
@@ -40,4 +52,18 @@ O objetivo do desafio é construir um programa que:
 3. Instale as dependências necessárias:
     ```bash
     pip install -r requirements/dev.txt
+    ```
+4. Execute na raiz do projeto o comando do Makefile
+    ```bash
+    make run-crawler
+    ```
+
+## Execução dos Testes:
+1. Execute o tox utilizando:
+    ```bash
+    tox
+    ```
+2. Caso precise executar os testes somente sobre um arquivo especifico, utilize:
+    ```bash
+    tox -- -k <file-name>
     ```
